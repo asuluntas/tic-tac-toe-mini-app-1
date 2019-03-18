@@ -11,14 +11,19 @@ document.getElementById("table").addEventListener("click", function(e){
   var x = document.createTextNode("X");
   var o = document.createTextNode("O");
 
-  if (turn) {
-    e.target.appendChild(x);
-    turn = !turn;
+  if (e.target.classList.contains("cell")) {
+    console.log("Please select another square!");
   } else {
-    e.target.appendChild(o);
-    turn = !turn;
+    if (turn) {
+      e.target.appendChild(x);
+      e.target.classList.add("cell");
+      turn = !turn;
+    } else {
+      e.target.appendChild(o);
+      e.target.classList.add("cell");
+      turn = !turn;
+    }
   }
-
 });
 
 
